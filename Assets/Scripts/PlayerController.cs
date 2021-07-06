@@ -26,6 +26,15 @@ public class PlayerController : MonoBehaviour
 
     //Animator
     Animator playerAnimator;
+    bool isTouchScreen = false;
+
+    private void Awake()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            isTouchScreen = true;
+        }
+    }
 
     private void Start()
     {
@@ -36,15 +45,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //MouseSwipeControl();
-        MobileSwipeControl();
+        if(isTouchScreen)
+            MobileSwipeControl();
+        else
+            MouseSwipeControl();
+
 
         PlayerFloating();
         Dancing();
     }
 
     #region Swipes
-    private void MouseSwipeControl() //Baþlangýç konumundan farklý ise
+    private void MouseSwipeControl() //Ba?lang?? konumundan farkl? ise
     {
         Vector3 dir = Vector3.forward * speed;
         dir.y = playerRB.velocity.y;
@@ -90,7 +102,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void MobileSwipeControl() //Baþlangýç konumundan farklý ise
+    private void MobileSwipeControl() //Ba?lang?? konumundan farkl? ise
     {
         if (!isFlying)
         {
@@ -174,7 +186,7 @@ public class PlayerController : MonoBehaviour
             Vector3 dir = (floatingPoints[floatingIndex].position - playerRB.position);
 
             float distance = dir.sqrMagnitude;
-            //dir = new Vector3(dir.z, dir.y, -dir.x); //karakter yönüne göre hareket// x = z ,   z = -x , y=y
+            //dir = new Vector3(dir.z, dir.y, -dir.x); //karakter y?n?ne g?re hareket// x = z ,   z = -x , y=y
             //transform.Translate(dir.normalized * flyingSpeed * 3 / 2 *  Time.deltaTime);
             playerRB.position = Vector3.MoveTowards(playerRB.position, floatingPoints[floatingIndex].position, flyingSpeed * (3 / 2 * Time.deltaTime));
 
