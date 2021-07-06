@@ -55,7 +55,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,7 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9026707266625890211
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +137,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -164,7 +161,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7593689125393018422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -190,4 +186,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae64c12df33320479b622c8c85f8c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sicrama: {fileID: 981834862219555224, guid: 37924a246ff3ead4eaade18d1933f1e9, type: 3}
   paperEffect: -20
