@@ -43,18 +43,52 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update()
     {
-        if(isTouchScreen)
-            MobileSwipeControl();
-        else
-            MouseSwipeControl();
+        if (!isGameStarted) {
+            if (isTouchScreen)
+            {
+                if (Input.touches.Length > 0 && Input.touches[0].phase == TouchPhase.Began)
+                    isGameStarted = true;
+            } else {
+                if (Input.GetMouseButtonDown(0) )
+                    isGameStarted = true;
+            }
+        }//if (!isGameStarted)
+        
+    }
+
+    void FixedUpdate()
+    {
+        if (!isGameStarted)
+            return;
+        
+            
+        // side moving
+        Vector3 pos = playerRB.position;
+        pos.x = InputManager.Instance.TargetX;
+
+        pos = Vector3.Lerp(playerRB.position, pos, Time.deltaTime * 20f);
+
+        playerRB.MovePosition(pos);
+
+        InputManager.Instance.ResetInput(pos.x);
+
+        //running
+        playerAnimator.SetTrigger("gameStarted");
+
+        Vector3 dir = Vector3.forward * speed;
+        dir.y = playerRB.velocity.y;
+        dir.x = playerRB.velocity.x;
+        //Vectoral movement
+        playerRB.velocity = dir;
 
 
         PlayerFloating();
         Dancing();
     }
 
+    /*
     #region Swipes
     private void MouseSwipeControl() //Ba?lang?? konumundan farkl? ise
     {
@@ -79,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("dif" + ( Input.mousePosition.x - startPos.x));
                 Debug.Log("Swipe right");
                 targetPosA = new Vector3(platformLimit, playerRB.position.y, playerRB.position.z);
-                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosA, speedHor);
+                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosA, speedHor * 3f);
 
                 startPos = Input.mousePosition;
 
@@ -89,7 +123,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("difeksi" + (Input.mousePosition.x - startPos.x));
                 Debug.Log("Swipe left");
                 targetPosD = new Vector3(-platformLimit, playerRB.position.y, playerRB.position.z);
-                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosD, speedHor);
+                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosD, speedHor * 3f);
 
                 startPos = Input.mousePosition;
             }
@@ -127,6 +161,16 @@ public class PlayerController : MonoBehaviour
             {
                 isGameStarted = true;
                 //Swipe Movements
+
+
+                if (Mathf.Abs(Input.touches[0].position.x - startPos.x) > 0.01f)
+                {
+                    Debug.Log("Swipe right");
+                    UpdateInputMove(Input.touches[0].position.x);
+                }
+                else {
+                }
+
                 if (Input.touches[0].position.x > startPos.x + CanvasValues.Instance.CalculatePercentForCanvasX(6) && playerRB.position.x < platformLimit)
                 {
                     Debug.Log("Swipe right");
@@ -169,8 +213,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #endregion
+    void UpdateInputMove(float x) {
+        if (Mathf.Abs(x - startPos.x) > 0.01f){
+            Debug.Log("Swipe left/right");
+            targetPosA = new Vector3( Mathf.Sign(x) * platformLimit, playerRB.position.y, playerRB.position.z);
+            playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosA, CanvasValues.Instance.GetCanvasPercentage(x - startPos.x) * speedHor * 10f);
 
+            startPos = Input.touches[0].position;
+        }
+    }
+
+    #endregion
+    */
 
     public void PlayerFloating()
     {

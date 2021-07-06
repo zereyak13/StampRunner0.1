@@ -27,4 +27,8 @@ public class CanvasValues : MonoBehaviour
         float percent = Screen.width * percentRate / 100;
         return percent;
     }
+
+    public float GetCanvasPercentage(float deltaX) {
+        return deltaX / Screen.width;
+    }
 }
