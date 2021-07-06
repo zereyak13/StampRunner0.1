@@ -5,6 +5,8 @@ public class InputManager : MonoBehaviour
 {
 	public static InputManager Instance { get; private set; } = null;
 
+	[HideInInspector] public bool isRunning;
+
 	[SerializeField] float screenWorldMult = 2f;
 
 	public bool IsTapActive { get; private set; } = false;
@@ -105,7 +107,7 @@ public class InputManager : MonoBehaviour
 
 	void UpdateTargetX(float x)
 	{
-		if (Mathf.Abs(x - startX) > 0.01f)
+		if (Mathf.Abs(x - startX) > 0.01f && isRunning)
 		{
 			TargetX += (x - startX) * screenWorldMult / Screen.width;
 			TargetX = Mathf.Clamp(TargetX

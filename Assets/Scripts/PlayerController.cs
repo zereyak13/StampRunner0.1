@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 8f;
 
     private Rigidbody playerRB;
-    private float speedHor = 0.1f;
-    private bool mouseDown, fingerDown;
-    private Vector3 startPos;
-    private Vector3 targetPosA, targetPosD;
-    private float platformLimit = 2f;
+    //private float speedHor = 0.1f;
+    //private bool mouseDown, fingerDown;
+    //private Vector3 startPos;
+    //private Vector3 targetPosA, targetPosD;
+    //private float platformLimit = 2f;
 
 
     //Animator
@@ -55,7 +55,16 @@ public class PlayerController : MonoBehaviour
                     isGameStarted = true;
             }
         }//if (!isGameStarted)
-        
+
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma"))
+        {
+            InputManager.Instance.isRunning = true;
+        }
+        else
+        {
+            InputManager.Instance.isRunning = false;
+        }
+       
     }
 
     void FixedUpdate()
@@ -230,7 +239,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isFlying)
         {
-            fingerDown = false;
+            //fingerDown = false;
             playerRB.velocity = Vector3.zero;
             speed = 0;
             playerRB.useGravity = false;

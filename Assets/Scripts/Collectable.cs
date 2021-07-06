@@ -12,6 +12,7 @@ public class Collectable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             InkBar.Instance.SetInkBar(inkEffect);
+            NiceVibrationsCall.Instance.MediumVibration();
             Destroy(gameObject);
         }
     }
