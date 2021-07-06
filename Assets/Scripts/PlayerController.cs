@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerFloating();
         Dancing();
+        FinalStamp();
     }
 
     /*
@@ -277,7 +278,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Dancing()
+    private void Dancing() //Final Dancing
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Dans 0"))
         {
@@ -285,6 +286,16 @@ public class PlayerController : MonoBehaviour
             CameraHandler.Instance.SetCamForDance();
             //transform.eulerAngles = new Vector3(0, 180, 0);
         }
+    }
+
+    private void FinalStamp() //FinalStamp
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("ÝleriTakla 0"))
+        {
+            ParticleManager.Insatance.InstantiateParticleEffect();
+            NiceVibrationsCall.Instance.SuccesVibration();
+        }
+        
     }
 
 

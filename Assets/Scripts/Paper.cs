@@ -20,7 +20,7 @@ public class Paper : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             InkBar.Instance.SetInkBar(paperEffect);
             playerAnimator.SetTrigger("forwardFlip");
-            NiceVibrationsCall.Instance.SuccesVibration();
+            NiceVibrationsCall.Instance.HeavyVibration();
         }
         //if (other.gameObject.CompareTag("Player"))
         //{

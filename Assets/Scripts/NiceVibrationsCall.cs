@@ -16,6 +16,10 @@ public class NiceVibrationsCall : MonoBehaviour
     {
         MMVibrationManager.Haptic(HapticTypes.Success, false, true, this);
     }
+    public void HeavyVibration()
+    {
+        MMVibrationManager.Haptic(HapticTypes.HeavyImpact, false, true, this);
+    }
     public void MediumVibration()
     {
         MMVibrationManager.Haptic(HapticTypes.MediumImpact, false, true, this);

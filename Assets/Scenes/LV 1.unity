@@ -6041,10 +6041,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1065354418, guid: 7f8fe34e52e10ee4290e3ae85a324864, type: 3}
-      propertyPath: canvasGO
-      value: 
-      objectReference: {fileID: 981102003}
     - target: {fileID: 3764247806244618280, guid: 7f8fe34e52e10ee4290e3ae85a324864,
         type: 3}
       propertyPath: m_Name
@@ -6390,6 +6386,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5593274554105108253, guid: 7f8fe34e52e10ee4290e3ae85a324864,
+        type: 3}
+      propertyPath: vmCam
+      value: 
+      objectReference: {fileID: 1546186349}
+    - target: {fileID: 5593274554105108253, guid: 7f8fe34e52e10ee4290e3ae85a324864,
+        type: 3}
+      propertyPath: confeti1GO
+      value: 
+      objectReference: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f8fe34e52e10ee4290e3ae85a324864, type: 3}
 --- !u!1001 &4660220540809557049
