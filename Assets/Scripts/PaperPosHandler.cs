@@ -68,9 +68,9 @@ private void Awake()
 
             instantiatedPapers[paperIndex].transform.position = Vector3.MoveTowards(instantiatedPapers[paperIndex].transform.position, cubePoints[paperIndex].transform.position, paperFloatSpeed);
 
-            Debug.Log(distance);
-            Debug.Log(paperIndex);
-            Debug.Log(instantiatedPapers.Length + "lengt");
+            //Debug.Log(distance);
+            //Debug.Log(paperIndex);
+            //Debug.Log(instantiatedPapers.Length + "lengt");
             if (distance < 1f && paperIndex < instantiatedPapers.Length - 1)
             {
                 paperIndex++;

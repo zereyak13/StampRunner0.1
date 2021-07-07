@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("ÝleriTakla 0"))
         {
-            ParticleManager.Insatance.InstantiateParticleEffect();
+            ParticleManager.Insatance.CallFinalStampEfect();
             NiceVibrationsCall.Instance.SuccesVibration();
         }
         

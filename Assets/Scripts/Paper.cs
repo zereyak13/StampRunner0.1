@@ -9,10 +9,11 @@ public class Paper : MonoBehaviour
 
     Animator playerAnimator;
 
-
     private void Start()
     {
         playerAnimator = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Animator>();
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,19 +22,17 @@ public class Paper : MonoBehaviour
         {
             if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
             {
+                GameObject stampedPaper = transform.GetChild(0).gameObject;
                 //stamped paper
-                transform.GetChild(0).gameObject.SetActive(true);
+                stampedPaper.SetActive(true);
                 //Set Ink bar
                 InkBar.Instance.SetInkBar(paperEffect);
                 playerAnimator.SetTrigger("forwardFlip");
                 //Vibration
                 NiceVibrationsCall.Instance.HeavyVibration();
-                // sicrama Pos = this.gameobject.pos;
-                //sicrama.transform.position = transform.position;
-                ////Start animation
-                //sicrama.gameObject.GetComponent<Animator>().SetTrigger("paintSplash");
-
-                //Tek satýr haline getirilecek
+                //Call Splash Effect
+                ParticleManager.Insatance.CallSplashEffect(stampedPaper);
+   
             }
         }
 

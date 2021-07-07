@@ -9,6 +9,7 @@ public class ParticleManager : MonoBehaviour
     private GameObject mainCam;
 
     [SerializeField] private GameObject confeti1GO;
+    [SerializeField] private GameObject waterSplashGO;
 
     private bool onlyOnce;
 
@@ -21,14 +22,24 @@ public class ParticleManager : MonoBehaviour
     {
         mainCam = Camera.main.gameObject;
     }
-    public void InstantiateParticleEffect()
+    public void CallFinalStampEfect()
     {
         if (!onlyOnce)
         {
             GameObject confeti = Instantiate(confeti1GO, mainCam.transform.position + new Vector3(0, 0, 3f), mainCam.transform.rotation);
             confeti.GetComponent<ParticleSystem>().Play();
+
+            //Water Splash
+            //Vector3 waterSplashPos = GameObject.FindGameObjectWithTag("Player").transform.position - Vector3.up;
+            //GameObject waterSplash = Instantiate(waterSplashGO, waterSplashPos, Quaternion.identity);
+            //waterSplash.GetComponent<ParticleSystem>().Play();
             onlyOnce = true;
         }
               
+    }
+    public void CallSplashEffect(GameObject SplashParent)
+    {
+        GameObject waterSplash = Instantiate(waterSplashGO, SplashParent.transform.position, Quaternion.identity);
+        waterSplash.GetComponent<ParticleSystem>().Play();
     }
 }
