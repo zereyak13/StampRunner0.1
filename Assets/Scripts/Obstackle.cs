@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Obstackle : MonoBehaviour
 {
-    [Header("BrushID = 0 || TongueID = 1 || WallID = 2")]
+    [Header("BrushID = 0 || TongueID = 1 || WallID = 2 || BoyaliFircaID = 3")]
 
     [SerializeField] int obstackleID;
 
@@ -29,11 +29,19 @@ public class Obstackle : MonoBehaviour
                     break;
 
                 case 1://Dil
-
+                    inkSlider.value -= 50;
+                    anim.SetBool("dil", true);
                     break;
 
                 case 2://Wall
                     inkSlider.value -= 20;
+                    //Player Dead
+                    //SceneManagement.Instance.LoadThisScene();
+                    break;
+
+                case 3://BoyaliFirca
+                    inkSlider.value += 50;
+                    anim.SetBool("brushAnim", true);
                     //Player Dead
                     //SceneManagement.Instance.LoadThisScene();
                     break;
