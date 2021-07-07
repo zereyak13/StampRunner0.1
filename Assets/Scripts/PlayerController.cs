@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform[] floatingPoints;
 
     private int floatingIndex;
-    private float flyingSpeed = 13f;
+    private float flyingSpeed = 15f;
 
     //MosueSwipeControl()  //MobileSwipeControl()
     [SerializeField] private float speed = 8f;
