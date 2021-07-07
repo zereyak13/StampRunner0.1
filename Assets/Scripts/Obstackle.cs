@@ -35,6 +35,7 @@ public class Obstackle : MonoBehaviour
 
                 case 2://Wall
                     inkSlider.value -= 20;
+                    other.gameObject.GetComponent<Animator>().SetTrigger("sarsilma");
                     //Player Dead
                     //SceneManagement.Instance.LoadThisScene();
                     break;
