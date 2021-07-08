@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Obstackle : MonoBehaviour
 {
-    [Header("BrushID = 0 || TongueID = 1 || WallID = 2 || BoyaliFircaID = 3")]
+    [Header("BrushID = 0 || TongueID = 1 || WallID = 2 ")]
 
     [SerializeField] int obstackleID;
 
@@ -16,6 +16,8 @@ public class Obstackle : MonoBehaviour
         anim = GetComponent<Animator>();
         inkSlider = InkBar.Instance.InkBarGO.GetComponent<Slider>();
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,13 +38,7 @@ public class Obstackle : MonoBehaviour
                 case 2://Wall
                     inkSlider.value -= 20;
                     other.gameObject.GetComponent<Animator>().SetTrigger("sarsilma");
-                    //Player Dead
-                    //SceneManagement.Instance.LoadThisScene();
-                    break;
-
-                case 3://BoyaliFirca
-                    inkSlider.value += 50;
-                    anim.SetBool("brushAnim", true);
+                    ParticleManager.Insatance.CallSplashEffect(other.gameObject.transform.position + new Vector3(0,1.4f,0));
                     //Player Dead
                     //SceneManagement.Instance.LoadThisScene();
                     break;

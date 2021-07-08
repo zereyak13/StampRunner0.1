@@ -49,7 +49,7 @@ public class Paper : MonoBehaviour
             //Vibration
             NiceVibrationsCall.Instance.HeavyVibration();
             //Call Splash Effect
-            ParticleManager.Insatance.CallSplashEffect(stampedPaper);
+            ParticleManager.Insatance.CallSplashEffect(stampedPaper.transform.position);
         }
     }
 

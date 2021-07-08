@@ -37,9 +37,9 @@ public class ParticleManager : MonoBehaviour
         }
               
     }
-    public void CallSplashEffect(GameObject SplashParent)
+    public void CallSplashEffect(Vector3 SplashPos)
     {
-        GameObject waterSplash = Instantiate(waterSplashGO, SplashParent.transform.position, Quaternion.identity);
+        GameObject waterSplash = Instantiate(waterSplashGO, SplashPos, Quaternion.identity);
         waterSplash.GetComponent<ParticleSystem>().Play();
     }
 }

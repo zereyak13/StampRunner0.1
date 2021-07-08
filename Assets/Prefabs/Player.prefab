@@ -108,12 +108,12 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f78a2dda8fe3e3409633665954640c6, type: 2}
-  - {fileID: 2100000, guid: f6dde951a7c0c854eb107845a460225b, type: 2}
+  - {fileID: 2100000, guid: 35be19264e1ab6a48b722d8335fdfb32, type: 2}
+  - {fileID: 2100000, guid: 1f9577b10bf28fb428150bf04362019d, type: 2}
+  - {fileID: 2100000, guid: 2d29f8a4fdd2e774887f4021d65a42f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,7 +138,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -9078532742685753478, guid: aad8e991511c3ea4d807411a92570312, type: 3}
+  m_Mesh: {fileID: -9078532742685753478, guid: b75243cc50b57954caa12ac2d75d6d71, type: 3}
   m_Bones:
   - {fileID: 2320450961973807027}
   - {fileID: 108016002280132139}
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6850d884d7223ac468a34bab7c38dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameStarted: 0
   isFlying: 0
   floatingPoints:
   - {fileID: 0}
@@ -543,7 +544,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3862670909044155601}
-  m_LocalRotation: {x: 0.000000010244549, y: 0.000027544796, z: -0.00000051409006, w: 1}
+  m_LocalRotation: {x: 0.000000010244549, y: 0.000027544796, z: -0.00000051409006,
+    w: 1}
   m_LocalPosition: {x: -0.000000010430812, y: 0.0030879586, z: 0.000000002235174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
