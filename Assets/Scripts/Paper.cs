@@ -22,17 +22,8 @@ public class Paper : MonoBehaviour
         {
             if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
             {
-                GameObject stampedPaper = transform.GetChild(0).gameObject;
-                //stamped paper
-                stampedPaper.SetActive(true);
-                //Set Ink bar
-                InkBar.Instance.SetInkBar(paperEffect);
                 playerAnimator.SetTrigger("forwardFlip");
-                //Vibration
-                NiceVibrationsCall.Instance.HeavyVibration();
-                //Call Splash Effect
-                ParticleManager.Insatance.CallSplashEffect(stampedPaper);
-   
+                StartCoroutine(AddDelayForStamp(0.1f));
             }
         }
 
@@ -50,9 +41,18 @@ public class Paper : MonoBehaviour
 
         if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
         {
-            transform.GetChild(0).gameObject.SetActive(true);
+            GameObject stampedPaper = transform.GetChild(0).gameObject;
+            //stamped paper
+            stampedPaper.SetActive(true);
+            //Set Ink bar
             InkBar.Instance.SetInkBar(paperEffect);
+            //Vibration
+            NiceVibrationsCall.Instance.HeavyVibration();
+            //Call Splash Effect
+            ParticleManager.Insatance.CallSplashEffect(stampedPaper);
         }
     }
+
+
 
 }

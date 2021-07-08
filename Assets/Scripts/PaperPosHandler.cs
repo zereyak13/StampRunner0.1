@@ -92,11 +92,11 @@ private void Awake()
             //Debug.Log(distance);
             //Debug.Log(paperIndex);
             //Debug.Log(instantiatedPapers.Length + "lengt");
-            Debug.Log(instantiatedPapers.Length + "papercount");
+            //Debug.Log(instantiatedPapers.Length + "papercount");
             if (distance < 2f && paperIndex < instantiatedPapers.Length -4 )
             {
                 paperIndex+=4;
-                Debug.Log(paperIndex + "paper ýndex");
+               /* Debug.Log(paperIndex + "paper ýndex")*/;
             }
         }
     }

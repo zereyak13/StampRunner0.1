@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 396d65e0aced4054593d4ab62c9e00c0
+guid: 1b02e7ebbeb51ff45a06619b8684d0a2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: kagit
-    second: {fileID: 2100000, guid: 60a9435d12c7ff34686d53bb68b93622, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
