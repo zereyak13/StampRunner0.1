@@ -56,14 +56,7 @@ public class PlayerController : MonoBehaviour
             }
         }//if (!isGameStarted)
 
-        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma"))
-        {
-            InputManager.Instance.isRunning = true;
-        }
-        else
-        {
-            InputManager.Instance.isRunning = false;
-        }
+        IsRunning();
        
     }
 
@@ -86,11 +79,17 @@ public class PlayerController : MonoBehaviour
         //running
         playerAnimator.SetTrigger("gameStarted");
 
-        Vector3 dir = Vector3.forward * speed;
-        dir.y = playerRB.velocity.y;
-        dir.x = playerRB.velocity.x;
-        //Vectoral movement
-        playerRB.velocity = dir;
+        if (InputManager.Instance.isRunning)
+        {
+            Vector3 dir = Vector3.forward * speed;
+            dir.y = playerRB.velocity.y;
+            dir.x = playerRB.velocity.x;
+            //Vectoral movement
+            playerRB.velocity = dir;
+        }
+        else
+            playerRB.velocity = Vector3.zero;
+       
 
 
         PlayerFloating();
@@ -296,6 +295,18 @@ public class PlayerController : MonoBehaviour
             NiceVibrationsCall.Instance.SuccesVibration();
         }
         
+    }
+
+    private void IsRunning()
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma"))
+        {
+            InputManager.Instance.isRunning = true;
+        }
+        else
+        {
+            InputManager.Instance.isRunning = false;
+        }
     }
 
 

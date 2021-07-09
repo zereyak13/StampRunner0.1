@@ -22,4 +22,9 @@ public class CameraHandler : MonoBehaviour
         vcam.Follow = finishPointTF;
         vcam.LookAt = finishPointTF;
     }
+    public void SetCamForFinal2()
+    {
+        CinemachineTransposer transposer = vcam.GetCinemachineComponent<CinemachineTransposer>();
+        transposer.m_FollowOffset = new Vector3(transposer.m_FollowOffset.x, transposer.m_FollowOffset.y, -15.5f);
+    }
 }

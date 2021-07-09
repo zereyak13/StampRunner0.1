@@ -43,8 +43,6 @@ public class ColorManager : MonoBehaviour
         SetCollectableInkColor(brushColor);
     }
 
-
-
     private void SetCollectableInkColor(int brushColor)
     {
         switch (brushColor)

@@ -27,4 +27,11 @@ public class InkBar : MonoBehaviour
     {
         sliderFillTF.GetComponent<Image>().color = barColor;
     }
+    
+    public float GetInkBarValue()
+    {
+        Slider inkBar = InkBarGO.gameObject.GetComponent<Slider>();
+        return inkBar.value;
+    }
+
 }
