@@ -10,11 +10,12 @@ public class InkBar : MonoBehaviour
     private Transform sliderFillTF;
     private void Awake()
     {
-        Instance = this;   
+        Instance = this;
+        sliderFillTF = InkBarGO.transform.GetChild(1).Find("Fill").transform;
     }
     private void Start()
     {
-        sliderFillTF = InkBarGO.transform.GetChild(1).Find("Fill").transform;
+     
     }
     public void SetInkBar(int inkEffect)
     {

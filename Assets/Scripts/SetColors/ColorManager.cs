@@ -20,21 +20,27 @@ public class ColorManager : MonoBehaviour
     Color greenVariant = new Color(51f / 255f, 190f / 255f, 87f / 255f, 1);
 
     private ParticleSystem.MainModule splashColor;
+    private Color curColor;
 
     private void Awake()
     {
         Instance = this;
+        splashColor = WaterSplashGO.transform.GetChild(0).GetComponent<ParticleSystem>().main;
     }
 
     private void Start()
     {
-        splashColor = WaterSplashGO.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+        collectableInkMat.color = blueVariant;
+        playerHeadMat.SetTexture("_MainTex", playerHeadTextures[3]);
+        stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[3]);
+        splashColor.startColor = new ParticleSystem.MinMaxGradient(blueVariant);
+        InkBar.Instance.SetBarColor(blueVariant);
+        curColor = blueVariant;
     }
 
     public void SetColors(int brushColor)
     {
         SetCollectableInkColor(brushColor);
-       
     }
 
 
@@ -49,6 +55,7 @@ public class ColorManager : MonoBehaviour
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(greenVariant);
                 InkBar.Instance.SetBarColor(greenVariant);
+                curColor = greenVariant;
                 break;
             case 1://Red varint
                 collectableInkMat.color = redVariant;
@@ -56,6 +63,7 @@ public class ColorManager : MonoBehaviour
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(redVariant);
                 InkBar.Instance.SetBarColor(redVariant);
+                curColor = redVariant;
                 break;
             case 2://Turquise variant
                 collectableInkMat.color = turquoiseVariant;
@@ -63,6 +71,7 @@ public class ColorManager : MonoBehaviour
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(turquoiseVariant);
                 InkBar.Instance.SetBarColor(turquoiseVariant);
+                curColor = turquoiseVariant;
                 break;
             case 3://Blue variant
                 collectableInkMat.color = blueVariant;
@@ -70,10 +79,15 @@ public class ColorManager : MonoBehaviour
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(blueVariant);
                 InkBar.Instance.SetBarColor(blueVariant);
+                curColor = blueVariant;
                 break;
         }
  
     }
      
+    public Color GetCurrentColor()
+    {
+        return curColor;
+    }
     //Set bar color
 }

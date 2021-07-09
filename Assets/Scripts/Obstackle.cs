@@ -33,6 +33,14 @@ public class Obstackle : MonoBehaviour
                 case 1://Dil
                     inkSlider.value -= 50;
                     anim.SetBool("dil", true);
+                    
+                    //Set dil color
+                    Material dilMat = Resources.Load("dil_uc 1", typeof(Material)) as Material;
+                    dilMat.SetColor("_Color", ColorManager.Instance.GetCurrentColor());
+                    //Set Material
+                    Material[] materials = transform.Find("Retopo_Tongue_Head_0.001").GetComponent<Renderer>().materials;
+                    materials[1] = dilMat;
+                    transform.Find("Retopo_Tongue_Head_0.001").GetComponent<Renderer>().materials = materials;
                     break;
 
                 case 2://Wall
