@@ -8,7 +8,7 @@ public class FinalZone2 : MonoBehaviour
 
     private void Start()
     {
-        camPos = transform.root.transform.Find("camPos");
+        camPos = transform.parent.transform.Find("camPos");
     }
  
     private void OnTriggerExit(Collider other)
