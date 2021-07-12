@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ParticleManager : MonoBehaviour
 {
-    public static ParticleManager Insatance;
+    public static ParticleManager Instance;
 
     private GameObject mainCam;
 
@@ -15,7 +15,7 @@ public class ParticleManager : MonoBehaviour
 
     private void Awake()
     {
-        Insatance = this;
+        Instance = this;
     }
 
     private void Start()
@@ -37,6 +37,13 @@ public class ParticleManager : MonoBehaviour
         }
               
     }
+    public void CallFinalStampEfect2()
+    {
+        GameObject confeti = Instantiate(confeti1GO, mainCam.transform.position + new Vector3(0, 0, 3f), mainCam.transform.rotation);
+        confeti.GetComponent<ParticleSystem>().Play();
+
+    }
+
     public void CallSplashEffect(Vector3 SplashPos)
     {
         GameObject waterSplash = Instantiate(waterSplashGO, SplashPos, Quaternion.identity);

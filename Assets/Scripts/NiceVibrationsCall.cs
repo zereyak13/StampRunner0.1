@@ -24,5 +24,8 @@ public class NiceVibrationsCall : MonoBehaviour
     {
         MMVibrationManager.Haptic(HapticTypes.MediumImpact, false, true, this);
     }
-
+    public void LightVibration()
+    {
+        MMVibrationManager.Haptic(HapticTypes.LightImpact, false, true, this);
+    }
 }

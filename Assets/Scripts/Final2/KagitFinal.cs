@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class KagitFinal : MonoBehaviour
 {
-    [SerializeField] private float kagitFinalEffect;
+    [SerializeField] private int kagitFinalEffect;
     // Start is called before the first frame update
 
-    private void OnTriggerExit(Collider other)
+    
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.transform.root.CompareTag("Player"))
         {
-            if (InkBar.Instance.GetInkBarValue() > 0)
+            if (InkBar.Instance.GetInkBarValue() > 10)
             {
+                InkBar.Instance.SetInkBar(kagitFinalEffect);
                 GetComponent<Animator>().SetTrigger("kagitAnim");
-                Destroy(gameObject, 0.41f);
-
-                Debug.Log("true");
+                ParticleManager.Instance.CallSplashEffect(other.gameObject.transform.root.position + new Vector3(0, 0, 0));
+                Destroy(gameObject, 0.45f);
+                transform.Find("isaret_giris").GetComponent<SkinnedMeshRenderer>().enabled = true;
+                StartCoroutine(AddDelay());
+            }
+            else if(InkBar.Instance.GetInkBarValue() <=10 && InkBar.Instance.GetInkBarValue() >0)
+            {
+                InkBar.Instance.SetInkBar(kagitFinalEffect);
+                GetComponent<Animator>().SetTrigger("kagitAnim");
+                ParticleManager.Instance.CallFinalStampEfect2();
+                other.gameObject.transform.root.GetComponent<Animator>().SetBool("FinalStampActive", false);
+                transform.Find("isaret_giris").GetComponent<SkinnedMeshRenderer>().enabled = true;
+                Destroy(gameObject, 0.45f);
+                NiceVibrationsCall.Instance.SuccesVibration();
+                SceneManagement.Instance.LoadThisScene();
                 StartCoroutine(AddDelay());
             }
         }

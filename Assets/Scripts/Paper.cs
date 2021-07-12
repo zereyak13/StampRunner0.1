@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Paper : MonoBehaviour
 {
     [SerializeField] private GameObject sicrama;
@@ -9,6 +10,7 @@ public class Paper : MonoBehaviour
 
     Animator playerAnimator;
 
+    private int score =10;
     private void Start()
     {
         playerAnimator = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Animator>();
@@ -49,7 +51,10 @@ public class Paper : MonoBehaviour
             //Vibration
             NiceVibrationsCall.Instance.HeavyVibration();
             //Call Splash Effect
-            ParticleManager.Insatance.CallSplashEffect(stampedPaper.transform.position);
+            ParticleManager.Instance.CallSplashEffect(stampedPaper.transform.position);
+            //Add Score
+            string scoreText =InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text;
+            InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = ""+(int.Parse(scoreText) + score);
         }
     }
 

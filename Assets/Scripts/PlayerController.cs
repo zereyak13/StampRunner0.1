@@ -38,9 +38,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        NiceVibrationsCall.Instance.LightVibration();
         playerRB = gameObject.GetComponent<Rigidbody>();
         playerAnimator = gameObject.GetComponent<Animator>();
-
     }
 
     private void Update()
@@ -88,8 +88,11 @@ public class PlayerController : MonoBehaviour
             playerRB.velocity = dir;
         }
         else
+        {
             playerRB.velocity = Vector3.zero;
-       
+        }
+           
+
 
 
         PlayerFloating();
@@ -291,7 +294,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("ÝleriTakla 0"))
         {
-            ParticleManager.Insatance.CallFinalStampEfect();
+            ParticleManager.Instance.CallFinalStampEfect();
             NiceVibrationsCall.Instance.SuccesVibration();
         }
         
@@ -299,15 +302,18 @@ public class PlayerController : MonoBehaviour
 
     private void IsRunning()
     {
-        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma"))
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma") 
+            || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("sarsilma") 
+            || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("damgalama1e 0"))
         {
             InputManager.Instance.isRunning = true;
         }
         else
         {
             InputManager.Instance.isRunning = false;
+            //Finalzonda neden çalýþmýyor.
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
         }
     }
-
 
 }

@@ -46,7 +46,7 @@ public class Obstackle : MonoBehaviour
                 case 2://Wall
                     inkSlider.value -= 20;
                     other.gameObject.GetComponent<Animator>().SetTrigger("sarsilma");
-                    ParticleManager.Insatance.CallSplashEffect(other.gameObject.transform.position + new Vector3(0,1.4f,0));
+                    ParticleManager.Instance.CallSplashEffect(other.gameObject.transform.position + new Vector3(0,1.4f,0));
                     //Player Dead
                     //SceneManagement.Instance.LoadThisScene();
                     break;

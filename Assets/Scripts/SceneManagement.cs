@@ -12,7 +12,7 @@ public class SceneManagement : MonoBehaviour
     }
     public void LoadThisScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(AddDelay2());
     }
 
     public void LoadNextLevel()
@@ -31,6 +31,12 @@ public class SceneManagement : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+    }
+    IEnumerator AddDelay2()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
 }
