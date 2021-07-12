@@ -10,6 +10,7 @@ public class ParticleManager : MonoBehaviour
 
     [SerializeField] private GameObject confeti1GO;
     [SerializeField] private GameObject waterSplashGO;
+    [SerializeField] private GameObject waterSplashBigGO;
 
     private bool onlyOnce;
 
@@ -48,5 +49,10 @@ public class ParticleManager : MonoBehaviour
     {
         GameObject waterSplash = Instantiate(waterSplashGO, SplashPos, Quaternion.identity);
         waterSplash.GetComponent<ParticleSystem>().Play();
+    }
+    public void CallBigSplashEffect(Vector3 SplashPos)
+    {
+        GameObject waterSplashBig = Instantiate(waterSplashBigGO, SplashPos, Quaternion.identity);
+        waterSplashBig.GetComponent<ParticleSystem>().Play();
     }
 }

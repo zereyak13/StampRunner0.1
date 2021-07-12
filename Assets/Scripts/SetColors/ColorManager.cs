@@ -10,6 +10,7 @@ public class ColorManager : MonoBehaviour
     [SerializeField] private Material collectableInkMat;
     [SerializeField] private Material stampedPaperMat;
     [SerializeField] private GameObject WaterSplashGO;
+    [SerializeField] private GameObject WaterSplashBigGO;
 
     [SerializeField] private Texture[] playerHeadTextures;
     [SerializeField] private Texture[] stampedPaperTextures;
@@ -20,12 +21,14 @@ public class ColorManager : MonoBehaviour
     Color greenVariant = new Color(51f / 255f, 190f / 255f, 87f / 255f, 1);
 
     private ParticleSystem.MainModule splashColor;
+    private ParticleSystem.MainModule splashColorBig;
     private Color curColor;
 
     private void Awake()
     {
         Instance = this;
         splashColor = WaterSplashGO.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+        splashColorBig = WaterSplashBigGO.transform.GetChild(0).GetComponent<ParticleSystem>().main; ;
     }
 
     private void Start()
@@ -34,6 +37,7 @@ public class ColorManager : MonoBehaviour
         playerHeadMat.SetTexture("_MainTex", playerHeadTextures[3]);
         stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[3]);
         splashColor.startColor = new ParticleSystem.MinMaxGradient(blueVariant);
+        splashColorBig.startColor = new ParticleSystem.MinMaxGradient(blueVariant);
         InkBar.Instance.SetBarColor(blueVariant);
         curColor = blueVariant;
     }
@@ -52,6 +56,7 @@ public class ColorManager : MonoBehaviour
                 playerHeadMat.SetTexture("_MainTex", playerHeadTextures[brushColor]);
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(greenVariant);
+                splashColorBig.startColor = new ParticleSystem.MinMaxGradient(greenVariant);
                 InkBar.Instance.SetBarColor(greenVariant);
                 curColor = greenVariant;
                 break;
@@ -60,6 +65,7 @@ public class ColorManager : MonoBehaviour
                 playerHeadMat.SetTexture("_MainTex", playerHeadTextures[brushColor]);
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(redVariant);
+                splashColorBig.startColor = new ParticleSystem.MinMaxGradient(redVariant);
                 InkBar.Instance.SetBarColor(redVariant);
                 curColor = redVariant;
                 break;
@@ -68,6 +74,7 @@ public class ColorManager : MonoBehaviour
                 playerHeadMat.SetTexture("_MainTex", playerHeadTextures[brushColor]);
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(turquoiseVariant);
+                splashColorBig.startColor = new ParticleSystem.MinMaxGradient(turquoiseVariant);
                 InkBar.Instance.SetBarColor(turquoiseVariant);
                 curColor = turquoiseVariant;
                 break;
@@ -76,6 +83,7 @@ public class ColorManager : MonoBehaviour
                 playerHeadMat.SetTexture("_MainTex", playerHeadTextures[brushColor]);
                 stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[brushColor]);
                 splashColor.startColor = new ParticleSystem.MinMaxGradient(blueVariant);
+                splashColorBig.startColor = new ParticleSystem.MinMaxGradient(blueVariant);
                 InkBar.Instance.SetBarColor(blueVariant);
                 curColor = blueVariant;
                 break;

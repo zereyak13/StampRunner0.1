@@ -36,7 +36,11 @@ public class SceneManagement : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
+    public int GetThisLevel()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
     }
 
 }

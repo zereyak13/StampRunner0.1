@@ -91,6 +91,7 @@ MonoBehaviour:
   collectableInkMat: {fileID: 2100000, guid: 88104a09d30696648916c00793ac9255, type: 2}
   stampedPaperMat: {fileID: 2100000, guid: 4c6102ae0fa46fc4cb81ad9a3b808f22, type: 2}
   WaterSplashGO: {fileID: 186206, guid: 6933e03d0b272f54bb5208ae3a2dbffa, type: 3}
+  WaterSplashBigGO: {fileID: 186206, guid: cbbffbf65252cb04ab2c93eb002280b6, type: 3}
   playerHeadTextures:
   - {fileID: 2800000, guid: c842041e21e8f154eaa8e2112e01930f, type: 3}
   - {fileID: 2800000, guid: 22a2c63bd7043dc4e9ab2765420b1cc7, type: 3}
@@ -411,3 +412,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   confeti1GO: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
   waterSplashGO: {fileID: 186206, guid: 6933e03d0b272f54bb5208ae3a2dbffa, type: 3}
+  waterSplashBigGO: {fileID: 186206, guid: cbbffbf65252cb04ab2c93eb002280b6, type: 3}

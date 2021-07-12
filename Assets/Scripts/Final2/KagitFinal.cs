@@ -16,7 +16,7 @@ public class KagitFinal : MonoBehaviour
             {
                 InkBar.Instance.SetInkBar(kagitFinalEffect);
                 GetComponent<Animator>().SetTrigger("kagitAnim");
-                ParticleManager.Instance.CallSplashEffect(other.gameObject.transform.root.position + new Vector3(0, 0, 0));
+                ParticleManager.Instance.CallBigSplashEffect(other.gameObject.transform.root.position);
                 Destroy(gameObject, 0.6f);
                 transform.Find("isaret_giris").GetComponent<SkinnedMeshRenderer>().enabled = true;
                 StartCoroutine(AddDelay());

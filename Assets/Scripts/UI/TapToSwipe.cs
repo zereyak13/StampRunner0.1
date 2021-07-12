@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class TapToSwipe : MonoBehaviour
 {
     private Slider tapToSwipe;
@@ -9,11 +10,18 @@ public class TapToSwipe : MonoBehaviour
 
     private bool swipeLeftRight;
     private int slideSpeed = 60;
+    private TextMeshProUGUI levelText;
+
+    private void Awake()
+    {
+        levelText = transform.Find("LevelText").transform.GetComponent<TextMeshProUGUI>();
+    }
     void Start()
     {
+
         tapToSwipe = gameObject.GetComponent<Slider>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-       
+        levelText.text = "Level: " + (SceneManagement.Instance.GetThisLevel() +1);
     }
 
     void Update()
