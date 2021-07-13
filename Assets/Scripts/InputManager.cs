@@ -107,7 +107,7 @@ public class InputManager : MonoBehaviour
 
 	void UpdateTargetX(float x)
 	{
-		if (Mathf.Abs(x - startX) > 0.01f) //&& isRunning
+		if (Mathf.Abs(x - startX) > 0.01f ) /*&& isRunning*/
 		{
 			TargetX += (x - startX) * screenWorldMult / Screen.width;
 			TargetX = Mathf.Clamp(TargetX
