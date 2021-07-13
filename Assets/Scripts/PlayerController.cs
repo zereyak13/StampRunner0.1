@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     Animator playerAnimator;
     bool isTouchScreen = false;
 
+    private bool isMoving;
     private void Awake()
     {
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         }//if (!isGameStarted)
 
         IsRunning();
+        IsMoving();
        
     }
 
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
         //running
         playerAnimator.SetTrigger("gameStarted");
 
-        if (InputManager.Instance.isRunning)
+        if (isMoving)
         {
             Vector3 dir = Vector3.forward * speed;
             dir.y = playerRB.velocity.y;
@@ -300,19 +302,30 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void IsRunning()
+    private void IsMoving()
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma") 
             || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("sarsilma") 
             || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("damgalama1e 0"))
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+            //Finalzonda neden çalýþmýyor.
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        }
+    }
+    private void IsRunning()
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma"))
         {
             InputManager.Instance.isRunning = true;
         }
         else
         {
             InputManager.Instance.isRunning = false;
-            //Finalzonda neden çalýþmýyor.
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
         }
     }
 
