@@ -20,7 +20,7 @@ public class FinalZone2 : MonoBehaviour
                 Var.Instance.gameScore = 1;
             }
        
-            if (InkBar.Instance.GetInkBarValue() > 0)
+            if (Var.Instance.gameScore >0)
             {
                 //Karakteri x ekseninde sıfıra sabitle neden burada çalışmadı da player controllarda yazmak zorunda kaldım.
 
