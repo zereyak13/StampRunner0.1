@@ -26,13 +26,14 @@ public class ColorManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        splashColor = WaterSplashGO.transform.GetChild(0).GetComponent<ParticleSystem>().main;
-        splashColorBig = WaterSplashBigGO.transform.GetChild(0).GetComponent<ParticleSystem>().main; ;
+        Instance = this;      
     }
 
     private void Start()
     {
+        splashColor = WaterSplashGO.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+        splashColorBig = WaterSplashBigGO.transform.GetChild(0).GetComponent<ParticleSystem>().main; ;
+
         collectableInkMat.color = blueVariant;
         playerHeadMat.SetTexture("_MainTex", playerHeadTextures[3]);
         stampedPaperMat.SetTexture("_MainTex", stampedPaperTextures[3]);
