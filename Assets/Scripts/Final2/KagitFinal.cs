@@ -20,6 +20,8 @@ public class KagitFinal : MonoBehaviour
                 ParticleManager.Instance.CallBigSplashEffect(other.gameObject.transform.root.position);
                 Destroy(gameObject, 0.6f);
                 transform.Find("isaret_giris").GetComponent<SkinnedMeshRenderer>().enabled = true;
+                NiceVibrationsCall.Instance.SuccesVibration();
+                KagitManager.Instance.MovemeFinalMultiplier();
                 StartCoroutine(AddDelay());
             }
             else if(Var.Instance.gameScore == 1)

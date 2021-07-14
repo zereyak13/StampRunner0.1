@@ -15,6 +15,9 @@ public class FinalZone2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            KagitManager.Instance.finalMultiplier.SetActive(true);
+            KagitManager.Instance.finalMultiplier.transform.Find("ok").parent = null;
+
             if(Var.Instance.gameScore == 0)
             {
                 Var.Instance.gameScore = 1;

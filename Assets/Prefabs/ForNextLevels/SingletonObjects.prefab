@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kagit: {fileID: 1886440069313059275, guid: 20066d2ad01a49b489e0b7ccbdae6546, type: 3}
+  finalMultiplier: {fileID: 0}
 --- !u!1 &1971988337
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameScore: 0
+  isStampReady: 0
 --- !u!1 &3764247806244618280
 GameObject:
   m_ObjectHideFlags: 0
