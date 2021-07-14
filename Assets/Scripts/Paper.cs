@@ -60,8 +60,8 @@ public class Paper : MonoBehaviour
             //Call Splash Effect
             ParticleManager.Instance.CallSplashEffect(stampedPaper.transform.position);
             //Add Score
-            string scoreText =InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text;
-            InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = ""+(int.Parse(scoreText) + scorePoint);
+            string scoreText =InkBar.Instance.InkBarGO.transform.Find("Score").Find("text").GetComponent<TextMeshProUGUI>().text;
+            InkBar.Instance.InkBarGO.transform.Find("Score").Find("text").GetComponent<TextMeshProUGUI>().text = ""+(int.Parse(scoreText) + scorePoint);
             Var.Instance.gameScore += 1;
             //Debug.Log(Var.Instance.gameScore);
 

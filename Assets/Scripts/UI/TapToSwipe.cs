@@ -14,7 +14,7 @@ public class TapToSwipe : MonoBehaviour
 
     private void Awake()
     {
-        levelText = transform.Find("LevelText").transform.GetComponent<TextMeshProUGUI>();
+        levelText = transform.Find("LevelImage").Find("LevelText").transform.GetComponent<TextMeshProUGUI>();
     }
     void Start()
     {

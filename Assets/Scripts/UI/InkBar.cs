@@ -11,7 +11,7 @@ public class InkBar : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        sliderFillTF = InkBarGO.transform.GetChild(1).Find("Fill").transform;
+        sliderFillTF = InkBarGO.transform.Find("FillArea").Find("Fill").transform;
     }
     private void Start()
     {
