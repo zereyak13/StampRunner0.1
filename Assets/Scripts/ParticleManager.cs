@@ -14,6 +14,9 @@ public class ParticleManager : MonoBehaviour
 
     private bool onlyOnce;
 
+    [HideInInspector]public GameObject waterSplash;
+    [HideInInspector]public GameObject waterSplashBig;
+
     private void Awake()
     {
         Instance = this;

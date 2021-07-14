@@ -12,18 +12,20 @@ public class KagitFinal : MonoBehaviour
     {
         if(other.gameObject.transform.root.CompareTag("Player"))
         {
-            if (InkBar.Instance.GetInkBarValue() > 10)
+            if (Var.Instance.gameScore > 1) //InkBar.Instance.GetInkBarValue() > 10
             {
-                InkBar.Instance.SetInkBar(kagitFinalEffect);
+                //InkBar.Instance.SetInkBar(kagitFinalEffect);
+                Var.Instance.gameScore -= 1;
                 GetComponent<Animator>().SetTrigger("kagitAnim");
                 ParticleManager.Instance.CallBigSplashEffect(other.gameObject.transform.root.position);
                 Destroy(gameObject, 0.6f);
                 transform.Find("isaret_giris").GetComponent<SkinnedMeshRenderer>().enabled = true;
                 StartCoroutine(AddDelay());
             }
-            else if(InkBar.Instance.GetInkBarValue() <=10 && InkBar.Instance.GetInkBarValue() >0)
+            else if(Var.Instance.gameScore == 1)
             {
-                InkBar.Instance.SetInkBar(kagitFinalEffect);
+                Var.Instance.gameScore -= 1;
+                //InkBar.Instance.SetInkBar(kagitFinalEffect);
                 GetComponent<Animator>().SetTrigger("kagitAnim");
                 ParticleManager.Instance.CallFinalStampEfect2();
                 other.gameObject.transform.root.GetComponent<Animator>().SetBool("FinalStampActive", false);
