@@ -15,12 +15,8 @@ public class FinalZone2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if(Var.Instance.gameScore == 0)
-            {
-                Var.Instance.gameScore = 1;
-            }
-       
-            if (Var.Instance.gameScore >0)
+            Debug.Log(other.gameObject.name);
+            if (InkBar.Instance.GetInkBarValue() > 0)
             {
                 //Karakteri x ekseninde sıfıra sabitle neden burada çalışmadı da player controllarda yazmak zorunda kaldım.
 

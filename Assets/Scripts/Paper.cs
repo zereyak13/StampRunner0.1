@@ -5,15 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 public class Paper : MonoBehaviour
 {
-    [HideInInspector] public int gameScore;
-
     [SerializeField] private GameObject sicrama;
     [SerializeField] private int paperEffect;
 
     Animator playerAnimator;
 
-    private int scorePoint =10;
-
+    private int score =10;
     private void Start()
     {
         playerAnimator = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Animator>();
@@ -21,18 +18,14 @@ public class Paper : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && Var.Instance.isStampReady)
+        if (other.gameObject.CompareTag("Player"))
         {
             if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
             {
                 playerAnimator.SetTrigger("forwardFlip");
                 StartCoroutine(AddDelayForStamp(0.1f));
-                Var.Instance.isStampReady = false;
             }
         }
 
@@ -61,10 +54,10 @@ public class Paper : MonoBehaviour
             ParticleManager.Instance.CallSplashEffect(stampedPaper.transform.position);
             //Add Score
             string scoreText =InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text;
-            InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = ""+(int.Parse(scoreText) + scorePoint);
-            Var.Instance.gameScore += 1;
-            //Debug.Log(Var.Instance.gameScore);
-
+            InkBar.Instance.InkBarGO.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = ""+(int.Parse(scoreText) + score);
         }
     }
+
+
+
 }

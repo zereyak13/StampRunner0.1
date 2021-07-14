@@ -38,9 +38,9 @@ public class Obstackle : MonoBehaviour
                     Material dilMat = Resources.Load("dil_uc 1", typeof(Material)) as Material;
                     dilMat.SetColor("_Color", ColorManager.Instance.GetCurrentColor());
                     //Set Material
-                    transform.Find("Retopo_Tongue_Head_0.001").GetComponent<Renderer>().material = dilMat;
-                    //dilMaterials = dilMat;
-                    //transform.Find("Retopo_Tongue_Head_0.001").GetComponent<Renderer>().materials = materials;
+                    Material[] materials = transform.Find("Retopo_Tongue_Head_0.001").GetComponent<Renderer>().materials;
+                    materials[1] = dilMat;
+                    transform.Find("Retopo_Tongue_Head_0.001").GetComponent<Renderer>().materials = materials;
                     break;
 
                 case 2://Wall

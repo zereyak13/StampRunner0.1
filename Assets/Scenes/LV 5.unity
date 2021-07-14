@@ -7552,6 +7552,78 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1967634698}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1001 &1995300387
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2620549639682670464, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_Name
+      value: 210713_Stamprunner_Animasyon_Dil_v3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2307463
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 51.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392829755620353338, guid: a3f015e1dc5099a4693589c539fb4216,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a3f015e1dc5099a4693589c539fb4216, type: 3}
+>>>>>>> parent of f831cff (Fixed : Dil  && wait for stamp)
 --- !u!4 &2004366144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5845008640692366312, guid: 788ac2568934c124c92439badc377f8f,
