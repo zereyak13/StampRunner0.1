@@ -16,13 +16,13 @@ public class Var : MonoBehaviour
     }
     private void Start()
     {
-        isStampReady = true;
+        //isStampReady = true;
         stampTimer = 0.65f;
     }
 
     private void Update()
     {
-        Debug.Log(isStampReady);
+        //Debug.Log(isStampReady);
         if (isStampReady == false)
         {
             stampTimer -= Time.deltaTime;

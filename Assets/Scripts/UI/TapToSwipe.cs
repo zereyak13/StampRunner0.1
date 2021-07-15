@@ -14,7 +14,7 @@ public class TapToSwipe : MonoBehaviour
 
     private void Awake()
     {
-        levelText = transform.Find("LevelImage").Find("LevelText").transform.GetComponent<TextMeshProUGUI>();
+        levelText = transform.parent.Find("LevelImage").Find("LevelText").transform.GetComponent<TextMeshProUGUI>();
     }
     void Start()
     {
@@ -53,6 +53,7 @@ public class TapToSwipe : MonoBehaviour
     {
         if(playerController.isGameStarted == true)
         {
+            levelText.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
     }
