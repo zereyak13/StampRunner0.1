@@ -8,6 +8,7 @@ public class Var : MonoBehaviour
 
     [HideInInspector] public int gameScore;
     [HideInInspector] public bool isStampReady;
+    [HideInInspector] public static int levelIndex = 1;
 
     private float stampTimer;
     private void Awake()
@@ -33,4 +34,5 @@ public class Var : MonoBehaviour
             }
         }
     }
+
 }

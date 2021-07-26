@@ -27,6 +27,6 @@ public class CameraHandler : MonoBehaviour
         CinemachineTransposer transposer = vcam.GetCinemachineComponent<CinemachineTransposer>();
         vcam.Follow = camPos;
         vcam.LookAt = camPos;
-        transposer.m_FollowOffset = new Vector3(transposer.m_FollowOffset.x, transposer.m_FollowOffset.y, -19f);
+        transposer.m_FollowOffset = new Vector3(transposer.m_FollowOffset.x, transposer.m_FollowOffset.y, -12f);
     }
 }

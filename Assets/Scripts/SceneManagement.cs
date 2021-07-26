@@ -13,7 +13,10 @@ public class SceneManagement : MonoBehaviour
         Instance = this;
 
         Elephant.LevelStarted(SceneManager.GetActiveScene().buildIndex);
+
+       
     }
+
     public void LoadThisScene()
     {
         StartCoroutine(AddDelay2());
@@ -21,6 +24,7 @@ public class SceneManagement : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        Var.levelIndex += 1;
         StartCoroutine(AddDelay());
     }
     IEnumerator AddDelay()
@@ -35,7 +39,7 @@ public class SceneManagement : MonoBehaviour
         else
         {
             Elephant.LevelCompleted(SceneManager.GetActiveScene().buildIndex);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
     IEnumerator AddDelay2()
@@ -48,7 +52,8 @@ public class SceneManagement : MonoBehaviour
 
     public int GetThisLevel()
     {
-        return SceneManager.GetActiveScene().buildIndex;
+        return Var.levelIndex;
+        //return SceneManager.GetActiveScene().buildIndex;
     }
 
 }

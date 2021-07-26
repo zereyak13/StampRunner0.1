@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         IsRunning();
         IsMoving();
-       
+
     }
 
     void FixedUpdate()

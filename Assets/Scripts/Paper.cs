@@ -12,7 +12,7 @@ public class Paper : MonoBehaviour
 
     Animator playerAnimator;
 
-    private int scorePoint =10;
+    //private int scorePoint =10;
 
     private void Start()
     {
@@ -60,9 +60,11 @@ public class Paper : MonoBehaviour
             //Call Splash Effect
             ParticleManager.Instance.CallSplashEffect(stampedPaper.transform.position);
             //Add Score
-            string scoreText =InkBar.Instance.InkBarGO.transform.parent.Find("Score").Find("text").GetComponent<TextMeshProUGUI>().text;
-            InkBar.Instance.InkBarGO.transform.parent.Find("Score").Find("text").GetComponent<TextMeshProUGUI>().text = ""+(int.Parse(scoreText) + scorePoint);
             Var.Instance.gameScore += 1;
+            TextMeshProUGUI scoreTMPRO = InkBar.Instance.InkBarGO.transform.parent.Find("Score").Find("text").GetComponent<TextMeshProUGUI>();
+            scoreTMPRO.text = ""+ Var.Instance.gameScore * 10;//(int.Parse(scoreText) + scorePoint)
+
+            //InkBar.Instance.InkBarGO.transform.parent.Find("Score").Find("text").GetComponent<TextMeshProUGUI>().text;
             //Debug.Log(Var.Instance.gameScore);
 
         }

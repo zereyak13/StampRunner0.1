@@ -815,14 +815,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465251759}
-  m_LocalRotation: {x: 0.12100314, y: 0, z: 0, w: 0.9926521}
-  m_LocalPosition: {x: -0.08006978, y: 7.7398624, z: -121.753006}
+  m_LocalRotation: {x: 0.078459114, y: 0, z: 0, w: 0.99691737}
+  m_LocalPosition: {x: -0.08006978, y: 7.7398624, z: -123.753006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1535576941}
   m_Father: {fileID: 1942325704}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 13.9, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9, y: 0, z: 0}
 --- !u!1001 &485805354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3674,7 +3674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 3
-  m_FollowOffset: {x: 0, y: 4.4, z: -12}
+  m_FollowOffset: {x: 0, y: 4.4, z: -14}
   m_XDamping: 1
   m_YDamping: 0
   m_ZDamping: 0
@@ -4066,8 +4066,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637219572}
-  m_LocalRotation: {x: 0.12100314, y: -0, z: -0, w: 0.9926521}
-  m_LocalPosition: {x: -0.08006978, y: 7.7398624, z: -121.753006}
+  m_LocalRotation: {x: 0.078459114, y: -0, z: -0, w: 0.99691737}
+  m_LocalPosition: {x: -0.08006978, y: 7.7398624, z: -123.753006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942325704}
@@ -5837,6 +5837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kagit_1_animation (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4566461984514328384, guid: 20066d2ad01a49b489e0b7ccbdae6546,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.418
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20066d2ad01a49b489e0b7ccbdae6546, type: 3}
 --- !u!1001 &2076338867
@@ -5854,12 +5859,12 @@ PrefabInstance:
     - target: {fileID: 136019782282298414, guid: 5376377f7c7a433479450d2c132e3e6c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 136019782282298414, guid: 5376377f7c7a433479450d2c132e3e6c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 2.63
       objectReference: {fileID: 0}
     - target: {fileID: 136019782282298414, guid: 5376377f7c7a433479450d2c132e3e6c,
         type: 3}

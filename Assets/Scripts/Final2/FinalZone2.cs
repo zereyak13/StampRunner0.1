@@ -27,7 +27,7 @@ public class FinalZone2 : MonoBehaviour
             {
                 //Karakteri x ekseninde sıfıra sabitle neden burada çalışmadı da player controllarda yazmak zorunda kaldım.
 
-                //other.transform.position = new Vector3(0, other.transform.position.y, other.transform.position.z);
+                other.transform.position = new Vector3(0, other.transform.position.y, other.transform.position.z);
 
                 other.gameObject.GetComponent<Animator>().SetBool("FinalStampActive", true); // final stamp animasyon
 
@@ -35,7 +35,7 @@ public class FinalZone2 : MonoBehaviour
                 other.transform.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.GetChild(0).GetChild(0).GetComponent<CapsuleCollider>().enabled = true;
 
-                CameraHandler.Instance.SetCamForFinal2(camPos);
+                //CameraHandler.Instance.SetCamForFinal2(camPos);
             }
             else
             {
@@ -45,7 +45,7 @@ public class FinalZone2 : MonoBehaviour
                 other.transform.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.GetChild(0).GetChild(0).GetComponent<CapsuleCollider>().enabled = true;
 
-                CameraHandler.Instance.SetCamForFinal2(camPos);
+                //CameraHandler.Instance.SetCamForFinal2(camPos);
                 SceneManagement.Instance.LoadThisScene();
 
             }

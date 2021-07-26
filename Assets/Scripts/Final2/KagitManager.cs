@@ -35,7 +35,7 @@ public class KagitManager : MonoBehaviour
         Instantiate(kagit, instantiatePos.position, kagit.transform.rotation);        
     }
 
-    public void MovemeFinalMultiplier()
+    public void MovementFinalMultiplier()
     {
         finalMultTargetPosY = finalMultiplier.transform.position.y - finalMultiplierMoveRange;
     }
