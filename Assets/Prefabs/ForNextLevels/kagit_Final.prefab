@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &709204929870243094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5717738829801203373}
+  m_Layer: 0
+  m_Name: Bone.006
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5717738829801203373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709204929870243094}
+  m_LocalRotation: {x: 7.1054274e-15, y: -1.06e-43, z: -1.282417e-21, w: 1}
+  m_LocalPosition: {x: -2.1175823e-24, y: 0.0012873884, z: -4.4408693e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8807296945270432668}
+  m_Father: {fileID: 5073793253548596933}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1286837215
 Animator:
   serializedVersion: 3
@@ -38,37 +69,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &709204929870243094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5717738829801203373}
-  m_Layer: 0
-  m_Name: Bone.006
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5717738829801203373
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709204929870243094}
-  m_LocalRotation: {x: 7.1054274e-15, y: -1.06e-43, z: -1.282417e-21, w: 1}
-  m_LocalPosition: {x: -2.1175823e-24, y: 0.0012873884, z: -4.4408693e-18}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8807296945270432668}
-  m_Father: {fileID: 5073793253548596933}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506036735519031245
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,8 +429,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 11.450954, z: 1}
-  m_Center: {x: 0, y: 5.2254777, z: 0}
+  m_Size: {x: 1, y: 11.450954, z: 2.2055335}
+  m_Center: {x: 0, y: 5.2254777, z: -0.60276663}
 --- !u!114 &2715639313050572493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8369183233664957813}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.034, z: -1.172}
+  m_LocalPosition: {x: 0, y: 0.034, z: -1.208}
   m_LocalScale: {x: 0.12625954, y: 0.09920573, z: 0.09920573}
   m_Children: []
   m_Father: {fileID: 1253737457028399985}

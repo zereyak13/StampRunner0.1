@@ -28,7 +28,7 @@ public class CameraHandler : MonoBehaviour
         {
             //Debug.Log("Buyuk");
            
-            Vector3 targetVec = new Vector3(transposer.m_FollowOffset.x, transposer.m_FollowOffset.y, -20f);
+            Vector3 targetVec = new Vector3(transposer.m_FollowOffset.x, transposer.m_FollowOffset.y, -19f);
             transposer.m_FollowOffset = Vector3.Lerp(transposer.m_FollowOffset, targetVec, 10f * Time.deltaTime /5);
 
             //Quaternion targetRotation = new Quaternion(4f, vcam.gameObject.transform.rotation.y, vcam.gameObject.transform.rotation.z,1);
@@ -46,7 +46,7 @@ public class CameraHandler : MonoBehaviour
         vcam.Follow = camPos; //camPos
         vcam.LookAt = null;
         //transposer.m_FollowOffset = new Vector3(transposer.m_FollowOffset.x, transposer.m_FollowOffset.y, -19f);
-        finalCamPos = -20f;
+        finalCamPos = -19f;
     }
   
 }
