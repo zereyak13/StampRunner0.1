@@ -35,7 +35,7 @@ public class FinalZone2 : MonoBehaviour
                 other.transform.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.GetChild(0).GetChild(0).GetComponent<CapsuleCollider>().enabled = true;
 
-                //CameraHandler.Instance.SetCamForFinal2(camPos);
+                CameraHandler.Instance.SetCamForFinal2(camPos);
             }
             else
             {
@@ -45,7 +45,7 @@ public class FinalZone2 : MonoBehaviour
                 other.transform.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.GetChild(0).GetChild(0).GetComponent<CapsuleCollider>().enabled = true;
 
-                //CameraHandler.Instance.SetCamForFinal2(camPos);
+                CameraHandler.Instance.SetCamForFinal2(camPos);
                 SceneManagement.Instance.LoadThisScene();
 
             }

@@ -18,7 +18,6 @@ public class TapToSwipe : MonoBehaviour
     }
     void Start()
     {
-
         tapToSwipe = gameObject.GetComponent<Slider>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         levelText.text = "Level: " + (SceneManagement.Instance.GetThisLevel());
