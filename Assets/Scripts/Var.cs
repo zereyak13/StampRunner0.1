@@ -1,9 +1,38 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Var 
+public class Var : MonoBehaviour
 {
-    /*public static float speed = 8f;*/ //8
+    public static Var Instance;
+
+    [HideInInspector] public int gameScore;
+    [HideInInspector] public bool isStampReady;
+    [HideInInspector] public static int levelIndex = 1;
+
+    private float stampTimer;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    private void Start()
+    {
+        //isStampReady = true;
+        stampTimer = 0.65f;
+    }
+
+    private void Update()
+    {
+        //Debug.Log(isStampReady);
+        if (isStampReady == false)
+        {
+            stampTimer -= Time.deltaTime;
+            if (stampTimer <= 0)
+            {
+                isStampReady = true;
+                stampTimer = 0.65f;
+            }
+        }
+    }
 
 }

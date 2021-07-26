@@ -2,26 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Paper : MonoBehaviour
 {
+    [HideInInspector] public int gameScore;
+
+    [SerializeField] private GameObject sicrama;
+    [SerializeField] private int paperEffect;
+
     Animator playerAnimator;
+
+    //private int scorePoint =10;
 
     private void Start()
     {
         playerAnimator = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Animator>();
+
+        
     }
 
-    [SerializeField] private int paperEffect;
-
+    private void Update()
+    {
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
+        if (other.gameObject.CompareTag("Player") && Var.Instance.isStampReady)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
-            InkBar.Instance.SetInkBar(paperEffect);
-            playerAnimator.SetTrigger("forwardFlip");
-            NiceVibrationsCall.Instance.SuccesVibration();
+            if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
+            {
+                playerAnimator.SetTrigger("forwardFlip");
+                StartCoroutine(AddDelayForStamp(0.1f));
+                Var.Instance.isStampReady = false;
+            }
         }
+
+
         //if (other.gameObject.CompareTag("Player"))
         //{
         //    StartCoroutine(AddDelayForStamp(0.190f));
@@ -35,9 +50,23 @@ public class Paper : MonoBehaviour
 
         if (InkBar.Instance.InkBarGO.GetComponent<Slider>().value != 0)//Sadece mürekkep varsa imza atar.
         {
-            transform.GetChild(0).gameObject.SetActive(true);
+            GameObject stampedPaper = transform.GetChild(0).gameObject;
+            //stamped paper
+            stampedPaper.SetActive(true);
+            //Set Ink bar
             InkBar.Instance.SetInkBar(paperEffect);
+            //Vibration
+            NiceVibrationsCall.Instance.HeavyVibration();
+            //Call Splash Effect
+            ParticleManager.Instance.CallSplashEffect(stampedPaper.transform.position);
+            //Add Score
+            Var.Instance.gameScore += 1;
+            TextMeshProUGUI scoreTMPRO = InkBar.Instance.InkBarGO.transform.parent.Find("Score").Find("text").GetComponent<TextMeshProUGUI>();
+            scoreTMPRO.text = ""+ Var.Instance.gameScore * 10;//(int.Parse(scoreText) + scorePoint)
+
+            //InkBar.Instance.InkBarGO.transform.parent.Find("Score").Find("text").GetComponent<TextMeshProUGUI>().text;
+            //Debug.Log(Var.Instance.gameScore);
+
         }
     }
-
 }

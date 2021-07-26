@@ -11,40 +11,100 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform[] floatingPoints;
 
     private int floatingIndex;
-    private float flyingSpeed = 13f;
+    private float flyingSpeed = 15f;
 
     //MosueSwipeControl()  //MobileSwipeControl()
     [SerializeField] private float speed = 8f;
 
     private Rigidbody playerRB;
-    private float speedHor = 0.1f;
-    private bool mouseDown, fingerDown;
-    private Vector3 startPos;
-    private Vector3 targetPosA, targetPosD;
-    private float platformLimit = 2f;
+    //private float speedHor = 0.1f;
+    //private bool mouseDown, fingerDown;
+    //private Vector3 startPos;
+    //private Vector3 targetPosA, targetPosD;
+    //private float platformLimit = 2f;
 
 
     //Animator
     Animator playerAnimator;
+    bool isTouchScreen = false;
+
+    private bool isMoving;
+    private void Awake()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            isTouchScreen = true;
+        }
+    }
 
     private void Start()
     {
+        NiceVibrationsCall.Instance.LightVibration();
         playerRB = gameObject.GetComponent<Rigidbody>();
         playerAnimator = gameObject.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (!isGameStarted) {
+            if (isTouchScreen)
+            {
+                if (Input.touches.Length > 0 && Input.touches[0].phase == TouchPhase.Began)
+                    isGameStarted = true;
+            } else {
+                if (Input.GetMouseButtonDown(0) )
+                    isGameStarted = true;
+            }
+        }//if (!isGameStarted)
+
+        IsRunning();
+        IsMoving();
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        //MouseSwipeControl();
-        MobileSwipeControl();
+        if (!isGameStarted)
+            return;
+        
+            
+        // side moving
+        Vector3 pos = playerRB.position;
+        pos.x = InputManager.Instance.TargetX;
+
+        pos = Vector3.Lerp(playerRB.position, pos, Time.deltaTime * 20f);
+
+        playerRB.MovePosition(pos);
+
+        InputManager.Instance.ResetInput(pos.x);
+
+        //running
+        playerAnimator.SetTrigger("gameStarted");
+
+        if (isMoving)
+        {
+            Vector3 dir = Vector3.forward * speed;
+            dir.y = playerRB.velocity.y;
+            dir.x = playerRB.velocity.x;
+            //Vectoral movement
+            playerRB.velocity = dir;
+        }
+        else
+        {
+            playerRB.velocity = Vector3.zero;
+        }
+           
+
+
 
         PlayerFloating();
         Dancing();
+        FinalStamp();
     }
 
+    /*
     #region Swipes
-    private void MouseSwipeControl() //Baþlangýç konumundan farklý ise
+    private void MouseSwipeControl() //Ba?lang?? konumundan farkl? ise
     {
         Vector3 dir = Vector3.forward * speed;
         dir.y = playerRB.velocity.y;
@@ -67,7 +127,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("dif" + ( Input.mousePosition.x - startPos.x));
                 Debug.Log("Swipe right");
                 targetPosA = new Vector3(platformLimit, playerRB.position.y, playerRB.position.z);
-                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosA, speedHor);
+                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosA, speedHor * 3f);
 
                 startPos = Input.mousePosition;
 
@@ -77,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("difeksi" + (Input.mousePosition.x - startPos.x));
                 Debug.Log("Swipe left");
                 targetPosD = new Vector3(-platformLimit, playerRB.position.y, playerRB.position.z);
-                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosD, speedHor);
+                playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosD, speedHor * 3f);
 
                 startPos = Input.mousePosition;
             }
@@ -90,7 +150,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void MobileSwipeControl() //Baþlangýç konumundan farklý ise
+    private void MobileSwipeControl() //Ba?lang?? konumundan farkl? ise
     {
         if (!isFlying)
         {
@@ -115,6 +175,16 @@ public class PlayerController : MonoBehaviour
             {
                 isGameStarted = true;
                 //Swipe Movements
+
+
+                if (Mathf.Abs(Input.touches[0].position.x - startPos.x) > 0.01f)
+                {
+                    Debug.Log("Swipe right");
+                    UpdateInputMove(Input.touches[0].position.x);
+                }
+                else {
+                }
+
                 if (Input.touches[0].position.x > startPos.x + CanvasValues.Instance.CalculatePercentForCanvasX(6) && playerRB.position.x < platformLimit)
                 {
                     Debug.Log("Swipe right");
@@ -157,14 +227,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #endregion
+    void UpdateInputMove(float x) {
+        if (Mathf.Abs(x - startPos.x) > 0.01f){
+            Debug.Log("Swipe left/right");
+            targetPosA = new Vector3( Mathf.Sign(x) * platformLimit, playerRB.position.y, playerRB.position.z);
+            playerRB.position = Vector3.MoveTowards(playerRB.position, targetPosA, CanvasValues.Instance.GetCanvasPercentage(x - startPos.x) * speedHor * 10f);
 
+            startPos = Input.touches[0].position;
+        }
+    }
+
+    #endregion
+    */
 
     public void PlayerFloating()
     {
         if (isFlying)
         {
-            fingerDown = false;
+            //fingerDown = false;
             playerRB.velocity = Vector3.zero;
             speed = 0;
             playerRB.useGravity = false;
@@ -174,7 +254,7 @@ public class PlayerController : MonoBehaviour
             Vector3 dir = (floatingPoints[floatingIndex].position - playerRB.position);
 
             float distance = dir.sqrMagnitude;
-            //dir = new Vector3(dir.z, dir.y, -dir.x); //karakter yönüne göre hareket// x = z ,   z = -x , y=y
+            //dir = new Vector3(dir.z, dir.y, -dir.x); //karakter y?n?ne g?re hareket// x = z ,   z = -x , y=y
             //transform.Translate(dir.normalized * flyingSpeed * 3 / 2 *  Time.deltaTime);
             playerRB.position = Vector3.MoveTowards(playerRB.position, floatingPoints[floatingIndex].position, flyingSpeed * (3 / 2 * Time.deltaTime));
 
@@ -202,7 +282,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Dancing()
+    private void Dancing() //Final Dancing
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Dans 0"))
         {
@@ -212,5 +292,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FinalStamp() //FinalStamp
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("ÝleriTakla 0"))
+        {
+            ParticleManager.Instance.CallFinalStampEfect();
+            NiceVibrationsCall.Instance.SuccesVibration();
+        }
+        
+    }
+
+    private void IsMoving()
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma") 
+            || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("sarsilma") 
+            || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("damgalama1e 0"))
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+            //Finalzonda neden çalýþmýyor.
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        }
+    }
+    private void IsRunning()
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Kase-Kosma"))
+        {
+            InputManager.Instance.isRunning = true;
+        }
+        else
+        {
+            InputManager.Instance.isRunning = false;
+        }
+    }
 
 }
