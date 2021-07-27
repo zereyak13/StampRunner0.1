@@ -411,7 +411,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 12
+  speed: 14
 --- !u!1 &2840688612553586719
 GameObject:
   m_ObjectHideFlags: 0
