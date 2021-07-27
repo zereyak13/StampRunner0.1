@@ -18,7 +18,7 @@ public class Var : MonoBehaviour
     private void Start()
     {
         //isStampReady = true;
-        stampTimer = 0.65f;
+        stampTimer = 0.55f;
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class Var : MonoBehaviour
             if (stampTimer <= 0)
             {
                 isStampReady = true;
-                stampTimer = 0.65f;
+                stampTimer = 0.55f;
             }
         }
     }
