@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using ElephantSDK;
+using UnityEngine.SceneManagement;
 public class TapToSwipe : MonoBehaviour
 {
     private Slider tapToSwipe;
@@ -52,6 +54,7 @@ public class TapToSwipe : MonoBehaviour
     {
         if(playerController.isGameStarted == true)
         {
+            Elephant.LevelStarted(SceneManager.GetActiveScene().buildIndex);
             levelText.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }

@@ -10,11 +10,7 @@ public class SceneManagement : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-
-        Elephant.LevelStarted(SceneManager.GetActiveScene().buildIndex);
-
-       
+        Instance = this;    
     }
 
     public void LoadThisScene()
